@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -22,18 +22,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 class TestHtml2ApplicationTests {
 	private static WebDriver driver;
 	
-	@BeforeAll
-	public static void setUp() {
+	@BeforeEach
+	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\mario\\Desktop\\Escuela\\Sexto Semestre\\Quality en Testing\\ChromeDriver\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
-	@AfterAll
-	public static void tearDown() {
+	@AfterEach
+	public void tearDown() {
 		driver.quit();
 	}
-	@Disabled
+	
 	@Test
 	public void givenAClient_whenEnteringAutomationPractice_thenPageTitleIsCorrect() throws Exception {
 		//When
@@ -43,7 +43,7 @@ class TestHtml2ApplicationTests {
 		//Then 
 		assertEquals("My Store", title);
 	}
-	@Disabled
+	
 	@Test
 	public void givenAClient_whenEnteringLoginCredentials_thenAccountPageIsDisplayed() throws Exception {
 		// When 
@@ -60,7 +60,7 @@ class TestHtml2ApplicationTests {
 		assertEquals("My account - My Store", title);	
 		
 	}
-	@Disabled
+	
 	@Test
 	public void givenAClient_whenEnteringWrongLoginCredentials_thenAuthenticationPageIsDisplayed() throws Exception {
 		// When 
@@ -77,7 +77,7 @@ class TestHtml2ApplicationTests {
 		assertEquals("Login - My Store", title);	
 		//fail("Test not yet implemented");
 	}
-	@Disabled
+	
 	@Test
 	public void givenAClient_whenEnteringWrongLoginCredentials_thenErrorMessageIsDisplayed() throws Exception {
 		// When 
@@ -95,7 +95,7 @@ class TestHtml2ApplicationTests {
 		assertEquals("Authentication failed.", alertMessageText);
 		//fail("Test not yet implemented");
 	}
-	@Disabled
+	
 	@Test
 	public void givenAClient_whenSearchingNotExistingProduct_thenNoResultIsDisplayed() throws Exception {
 		
@@ -121,7 +121,7 @@ class TestHtml2ApplicationTests {
 		//fail("Test not yet implemented");
 		
 	}
-	@Disabled
+	
 	@Test
 	public void givenAClient_whenSearchingEmptyString_thenPleaseEnterDisplayed() throws Exception {
 		
